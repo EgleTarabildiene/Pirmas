@@ -1,0 +1,17 @@
+{
+  "name": "pirmas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test1.js",
+  "scripts": {
+    "band": "node --watch ./Uzduotis1/bandymai.js",
+    "test1": "node --watch ./test1.js",
+    "test2": "node --watch ./test2.js",
+    "test3": "node --watch ./test3.js",
+    "test4": "node --watch ./test4.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Egle <egletarabildiene@gmail.com> (https://github.com/EgleTarabildiene)",
+  "license": "MIT"
+}
