@@ -29,3 +29,16 @@ console.log(zaidines(1925));
 console.log(zaidines(1926));
 console.log(zaidines(1927));
 console.log(zaidines(1928));
+
+
+
+function zaidines2(year) {
+    if (year >= 1896 && year % 4 === 0) {
+        return (year - 1896) / 4 + 1 + ' ' + "olimpiniai metai";
+    } else {
+        return 'Tai buvo ne olimpiniai metai.'
+    }
+}
+
+console.log(zaidines2(1900));
+console.log(zaidines2(1901));
