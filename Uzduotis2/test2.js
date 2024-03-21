@@ -32,3 +32,8 @@ function skaiciuKiekis(data) {
 }
 
 console.log(skaiciuKiekis(data));
+
+
+
+
+

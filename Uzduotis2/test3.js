@@ -12,23 +12,35 @@ Parašykite programą kuri apverstų(pasuktų) masyvą, rezultatas atvaizduojama
 5 7 9 5
 */
 
-const fs = require("fs");
-let data = fs.readFileSync("pasuktas.txt").toString().split("\r\n");
+const fs = require("fs");          //split sukurti masyva
+let input = fs.readFileSync("pasuktas.txt").toString().split("\r\n");
+console.log(input);
+
+let mas2d = [];
+input.forEach((l) => {
+    mas2d.push(l.split(" "));
+
+});
 
 
+/*     //originalus masyvas
+for (let i = 0; i < 4; i++) {
+    let s = '';
+    for (let y = 0; y < 3; y++) {  // 9 kartus suksis ciklas
+        s += `${mas2d[i][y]}`;
+    }
+    console.log(s);   
+}
 
-//let line = 0;
-//let mas = [];
-//data.forEach((d) => {
-//    mas[line] = [];
-//    let a = [];
-//    d.split(" ").forEach((x) => {
-//        mas[line].push(x);
-//
-//        a = x;
-//        console.log(a);
-//    });
-//
-//});
+*/
+// pakeistas masyvas
+for (let i = 0; i < 4; i++) {
+    let s = '';
+    for (let y = 0; y < 4; y++) {  // 9 kartus suksis ciklas
+        s += `${mas2d[y][i]}`;
+    }
+    console.log(s);
+}
+
 
 
