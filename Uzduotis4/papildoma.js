@@ -25,34 +25,20 @@ async function loadValiuta() {
     const valiuta = await tmp.json()
 
 
-    let duotas = "process.argv[2]";
+    let duotaV = process.argv[2];
 
-
-    let count2 = [];
+    raktas = '';
     for (let key in valiuta) {
-        console.log(key);
-        if (key === duotas) {
-            console.log('Teisingai', duotas);
+        raktas = key;
+        if (raktas === duotaV) {
+            console.log(`Teisinga valiuta: ${duotaV}------------`);
         } else {
-            count2.push(key);
-
-            console.log(`Galite rinktis vieną iš šių valiutų: ${count2} `);
+            console.log(`Galite rinktis vieną iš šių valiutų: ${raktas} `);
 
         }
     }
 }
 loadValiuta()
-
-
-
-
-
-
-
-
-
-
-
 
 
 

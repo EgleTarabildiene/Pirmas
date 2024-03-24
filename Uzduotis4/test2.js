@@ -22,24 +22,26 @@ NOK kursas: 11.5
 */
 
 
-let naujas = process.argv[2];
+let naujaV = process.argv[2];
 let kiekis = process.argv[3];
 
-async function loadValiuta(naujas) {
+
+async function loadValiuta(naujaV) {
 
 
-    const tmp = await fetch("https://api.frankfurter.app/latest?from=EUR&to=" + naujas + "");
+    const tmp = await fetch("https://api.frankfurter.app/latest?from=EUR&to=" + naujaV + "");
 
     const valiuta = await tmp.json()
 
-    let naujasKiekis = valiuta.rates.NOK * kiekis;
-    console.log(valiuta.rates.NOK);
-    console.log('NOK kursas:', valiuta.rates.NOK);
-    console.log('${kiekis} EUR =>', naujasKiekis, "NOK");
+
+    let naujasKiekis = valiuta.rates[naujaV] * kiekis;
+
+    console.log(`${naujaV}: ${valiuta.rates[naujaV]}`);
+    console.log(`${kiekis} EUR => ${naujasKiekis} ${naujaV}`);
 
 }
 
-loadValiuta(naujas);
+loadValiuta(naujaV);
 
 
 
