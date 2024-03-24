@@ -6,8 +6,8 @@
   "scripts": {
     "band": "node --watch ./Uzduotis1/bandymai.js",
     "test1": "node --watch ./test1.js",
-    "test2": "node --watch ./test2.js",
-    "test3": "node --watch ./Uzduotis2/test3.js",
+    "test2": "node --watch .test2.js",
+    "test3": "node --watch ./Uzduotis3/test3.js",
     "test4": "node --watch ./Uzduotis1/test4.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

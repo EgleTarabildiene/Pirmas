@@ -51,3 +51,13 @@ for (let i = 0; i < 4; i++) {
     }
     console.log(s);
 }
+
+// destytojo pavizdys namu darbo
+/*
+for (let index = 0; index < array.length; index++) {
+    mas2d[index][index]=0;
+    mas2d[n-i -index][index]=0;
+    
+}
+console.log();
+*/
