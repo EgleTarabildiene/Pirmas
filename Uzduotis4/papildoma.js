@@ -18,27 +18,26 @@ https://api.frankfurter.app/currencies
 
 
 
-async function loadValiuta() {
+async function loadValiuta(duotaV, kiekis) {
 
 
-    const tmp = await fetch("https://api.frankfurter.app/currencies");
+    const tmp = await fetch("https://api.frankfurter.app/latest");
+
     const valiuta = await tmp.json()
+    const visosVal = valiuta.rates;
 
+    //console.log(valiuta);
+    if (visosVal[duotaV]) {
+        console.log(`${duotaV}: ${valiuta.rates[duotaV]}`);
+        console.log(`${kiekis} EUR => ${visosVal[duotaV] * kiekis} ${duotaV}`);
+    } else {
+        console.log(`Valiuta: ${duotaV} neagzistuoja.`);
+        console.log(`Galite rinktis vieną iš šių valiutų: ${Object.keys(visosVal)}. `);
 
-    let duotaV = process.argv[2];
-
-    raktas = '';
-    for (let key in valiuta) {
-        raktas = key;
-        if (raktas === duotaV) {
-            console.log(`Teisinga valiuta: ${duotaV}------------`);
-        } else {
-            console.log(`Galite rinktis vieną iš šių valiutų: ${raktas} `);
-
-        }
     }
 }
-loadValiuta()
+
+loadValiuta(process.argv[2], process.argv[3]);
 
 
 
