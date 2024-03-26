@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="kmi.js">
+    <link rel="stylesheet" href="kmi.css">
+    <title>KMI</title>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>KMI Skaičiuoklė</h1>
+        <div class="card">
+            <label for="ugis">Ūgis (cm)</label>
+            <input type="number" id="ugis" min="0" placeholder="cm" />
+        </div>
+        <div class="card">
+            <label for="svoris">Svoris (kg)</label>
+            <input type="number" id="svoris" min="0" placeholder="kg" />
+        </div>
+        <button class="btn" id="btn">
+            Suskaičiuoti KMI (kuno masės indeksas)
+        </button>
+        <div class="result" id="result"></div>
+        <p class="instruction" id="instruction">Įveskite duomenis ir paspauskite skaičiuoti</p>
+    </div>
+    <script>
+        const ugisInput = document.getElementById("ugis");
+        const svorisInput = document.getElementById("svoris");
+        const btn = document.getElementById("btn");
+        const result = document.getElementById("result");
+
+        const skaiciuoti = () => {
+            const ugis = ugisInput.valueAsNumber;
+            const svoris = svorisInput.valueAsNumber;
+            const sum = (svoris / ((ugis * ugis) / 10000)).toFixed(2);
+            result.innerHTML = `Jusu KMI yra: ${sum}`;
+        }
+
+        btn.onclick = skaiciuoti;
+    </script>
+</body>
+
+</html>

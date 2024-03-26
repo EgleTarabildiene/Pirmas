@@ -1,0 +1,70 @@
+body {
+     font-family: Arial;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background-color: rgba(97, 20, 220, 0.192);
+ }
+
+ .container {
+     width: 400px;
+     background-color: salmon;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 5);
+ }
+
+ h1 {
+     text-align: center;
+     color: black;
+     margin-bottom: 20px;
+ }
+
+ .card {
+     margin-bottom: 30px;
+ }
+
+ .card input {
+     width: 96%;
+     padding: 8px;
+     border: 1px solid rgba(0, 0, 0, 1);
+
+ }
+
+ .card label {
+     width: 96%;
+     padding: 15px;
+     border-radius: 4px;
+ }
+
+ .btn {
+     background-color: rgba(255, 0, 0, 0.459);
+     color: azure;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     width: 100%;
+
+ }
+
+ .btn:hover {
+     background-color: blueviolet;
+ }
+
+ .result {
+     text-align: center;
+     margin-top: 20px;
+     font-weight: bold;
+     color: black;
+ }
+
+ .instruction {
+     text-align: center;
+     color: #000;
+     margin-top: 10px;
+ }
+
