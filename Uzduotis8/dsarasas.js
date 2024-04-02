@@ -52,9 +52,13 @@ const showProducts = () => {
         productLi.textContent = `${p.name} ${p.surname} ${Number(p.alga)}`;
         resultList.appendChild(productLi);
         suma += Number(p.alga);
-        sumaInp.textContent = ` Iš viso skirta darbuotoju atlyginimams: ${Number(suma)} EUR `;
-        vidurkisInp.textContent = `Darbuotoju atlyginimo vidurkis: ${Number(suma) / people.length} EUR`;
-
+        if (people.length == 0) {
+            sumaInp.textContent = "";
+            vidurkisInp.textContent = "";
+        } else {
+            sumaInp.textContent = ` Iš viso skirta darbuotoju atlyginimams: ${Number(suma)} EUR `;
+            vidurkisInp.textContent = `Darbuotoju atlyginimo vidurkis: ${Number(suma) / people.length} EUR`;
+        }
         //sukuriam HTML button elementa
         const deleteBtn = document.createElement("button")
 

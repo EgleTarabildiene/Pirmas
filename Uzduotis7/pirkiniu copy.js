@@ -1,62 +1,76 @@
-const prekeInput = document.getElementById("preke");
-const svorisInput = document.getElementById("kiekis");
-const list = document.getElementById("tasks_list");
+//Pasiimam elementus iš HTML
+const nameInp = document.getElementById("name");
+const quantityInp = document.getElementById("quantity");
+const addBtn = document.getElementById("add");
+const resultList = document.getElementById("result");
+const clearBtn = document.getElementById("clear");
 
-const addBtn = document.getElementById("add_task");
-const clearTasks = document.getElementById("clear_tasks");
+let products = [];
+
+const saveProducts = () => {
+    localStorage.setItem("products", JSON.stringify(products));
+}
+
+const loadProducts = () => {
+    const lsProducts = localStorage.getItem("products");
+    if (lsProducts != null) {
+        products = JSON.parse(lsProducts);
+        showProducts();
+    }
+}
+
+const showProducts = () => {
+    resultList.innerHTML = "";
+    products.forEach((p, i) => {
+        const productLi = document.createElement("li");
+        productLi.className = "list-group-item";
+        productLi.textContent = `${p.name} (${p.quantity})`;
+        resultList.appendChild(productLi);
 
 
+        //sukuriam HTML button elementa
+        const deleteBtn = document.createElement("button")
 
-let tasks = [];
+        //priskiriam atributa textConent
+        deleteBtn.textContent = "istrinti";
 
-const showTasks = () => {
+        //stilizuojame migtuka
+        deleteBtn.className = "btn btn-info float-end btn-sm";
 
-    list.innerHTML = "";
+        deleteBtn.onclick = () => {
+            products.splice(i, 1);
+            saveProducts();
+            showProducts();
+        };
 
-    tasks.forEach((t) => {
 
-        const newTask = document.createElement("li");
+        //migtuka priskiriame li (productLI) elementui
+        productLi.appendChild(deleteBtn);
 
-        newTask.className = "list-group-item";
-        newTask.textContent = `${t.pavadinimas} ${t.kiekis}`;
-        list.appendChild(newTask);
     });
 }
 
-
-
-const addTask = () => {
-    const preke = prekeInput.value;
-    const svoris = svorisInput.value;
-    tasks.push({
-        pavadinimas: preke,
-        kiekis: svoris,
-
+const addProduct = () => {
+    //Paimame reiksmes is laukeliu
+    const name = nameInp.value;
+    const quantity = quantityInp.value;
+    nameInp.value = "";
+    quantityInp.value = "";
+    products.push({
+        name: name,
+        quantity: quantity
     });
-    prekeInput.value = "";
-    svorisInput.value = "";
-
-    showTasks();
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    showProducts();
+    saveProducts();
 }
 
-const clearList = () => {
-
-    tasks = [];
-    localStorage.removeItem("tasks");
-
-    showTasks();
+const clear = () => {
+    products = [];
+    saveProducts();
+    showProducts();
 }
 
+addBtn.onclick = addProduct;
+clearBtn.onclick = clear;
 
-addBtn.onclick = addTask;
-clearTasks.onclick = clearList;
-
-
-const lsTasks = localStorage.getItem("tasks");
-
-
-if (lsTasks != null) {
-    tasks = JSON.parse(lsTasks);
-    showTasks();
-}
+loadProducts();
