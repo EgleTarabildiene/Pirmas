@@ -1,0 +1,62 @@
+* {
+    margin :0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: url(blue-sea-22407-2560x1600.jpg);
+    background-color: azure;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+
+}
+
+.laikrodis{
+    background: url(blue-sea-22407-2560x1600.jpg);
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.timer {
+    font-size: 50px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    font-size: 20px;
+    color: white;
+    background-color: brown;
+    padding: 10px;
+    cursor: pointer;
+
+   
+       
+        
+   
+
+}
+
+#stop {
+    background-color: red;
+}
+
+#start {
+    background-color: green;
+}
+
+.chro {
+    margin-bottom: 50px;
+}

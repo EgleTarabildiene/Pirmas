@@ -54,7 +54,7 @@ skaiciuoti = () => {
 
 
     rezultatas = kainaInp.value * (kaina2Inp.value / 100);
-    if (pvmSelect.value == 21) {
+    if (pvmSelect.value == "up") {
         rezultatasDiv.innerHTML = `${Number(kainaInp.value) + rezultatas}`;
     } else {
         rezultatasDiv.innerHTML = kainaInp.value - rezultatas;
@@ -94,9 +94,15 @@ ijungtiMygtuka = () => {
 
 
 
+
+
+
+
+
+
 skaiciuotiBtn.onclick = skaiciuoti;
 
 
-kainaInp.oninput = ijungtiMygtuka;
-kaina2Inp.oninput = ijungtiMygtuka;
+kainaInp.onkeyup = ijungtiMygtuka;
+kaina2Inp.onkeyup = ijungtiMygtuka;
 
