@@ -38,3 +38,13 @@ button:hover {
 #countryInfo {
     margin-top: 20px;
 }
+
+ #resultContainer {
+  
+     margin-top: 20px;
+ }
+
+ #klaidosInfo {
+     color: red;
+     background-color: pink;
+ }
