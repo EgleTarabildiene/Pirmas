@@ -26,6 +26,8 @@ const countryInput = document.getElementById("countryInput");
 const searchButton = document.getElementById("searchButton");
 const resultContainer = document.getElementById("resultContainer");
 const resultInfo = document.getElementById("resultInfo");
+const klaidosInfo = document.getElementById("klaidosInfo");
+
 
 
 fetch('https://restcountries.com/v3.1/all')
@@ -42,7 +44,10 @@ fetch('https://restcountries.com/v3.1/all')
             countryInput.appendChild(option);
         });
     })
-
+    .catch(error => {
+        console.error('Klaida gaudant šalių duomenis:', error);
+        klaidosInfo.textContent = "Nepavyko gauti šalių duomenų. Patikrinkite interneto ryšį arba bandykite vėliau.";
+    });
 
 
 
@@ -52,11 +57,21 @@ const gautaSalis = () => {
 
     fetch(`https://restcountries.com/v3.1/name/${countryName}`)
         .then(response => {
+            if (!response.ok) {
+                throw new Error("Šalis nerasta! Patikrinkite įvestį.");
+            }
             return response.json();
         })
         .then(data => {
             console.log(data);
+
             const country = data[0];
+            if (country.succsess !== undefined) {
+                let e = new Error("Zanras nerastas");
+                e.name = "nerasta"
+                // komanda throw kaip ir return nutraukia vygdyma
+                throw e;
+            }
             resultInfo.innerHTML = `
                 <p>Šalies pavadinimas: ${country.name.common}</p>
                 <p>Populiacija: ${country.population}</p>
@@ -67,7 +82,10 @@ const gautaSalis = () => {
             resultContainer.style.display = "block";
 
         })
-
+        .catch((e) => {
+            klaidosInfo.textContent = e.message;
+            resultContainer.style.display = "block";
+        })
 };
 
 searchButton.onclick = gautaSalis;
