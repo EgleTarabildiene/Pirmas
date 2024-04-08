@@ -67,7 +67,7 @@ const gautaSalis = () => {
 
             const country = data[0];
             if (country.succsess !== undefined) {
-                let e = new Error("Zanras nerastas");
+                let e = new Error("Šalis nerasta");
                 e.name = "nerasta"
                 // komanda throw kaip ir return nutraukia vygdyma
                 throw e;
