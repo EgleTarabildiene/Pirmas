@@ -122,3 +122,14 @@ grupe.forEach((tri)=>{
 
 const nTrikampis = new Trikampis (5, 5, 4,)
 console.log("Visu trikampiu plotis", plotis);
+
+
+
+
+
+
+
+
+
+
+
