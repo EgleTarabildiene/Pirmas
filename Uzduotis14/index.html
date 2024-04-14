@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="./dist/app.js"></script>
+
+    <style>
+        body {
+            background-image: url(background-1685845_1280.jpg);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .container {
+            margin-top: 100px;
+            width: 400px;
+            background-color: rgba(218, 165, 32, 0.781);
+            display: flex;
+            border: 2px solid rgba(0, 0, 0, 0.356);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 50px;
+
+        }
+
+        h2 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        input {
+            border: 3px solid rgba(0, 0, 0, 0.356);
+            padding: 5px;
+        }
+
+        button {
+            background-color: burlywood;
+            border: 2px solid rgba(0, 0, 0, 0.356);
+            cursor: pointer;
+            padding: 10px 15px;
+        }
+
+        button:hover {
+            background-color: brown;
+
+        }
+
+        #result {
+            background-color: white;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Įveskite vardą</h2>
+        <input type="text" name="" id="name">
+        <button id="suzinoti">Suzinoti</button>
+        <div id="result"></div>
+    </div>
+</body>
+
+</html>
