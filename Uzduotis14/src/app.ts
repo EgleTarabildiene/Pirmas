@@ -38,12 +38,12 @@ suzinotiBtn.onclick=()=>{
            
             
         })
-        .then( (data:Vardai[])=>{
+        .then( (data:Vardai)=>{
            let str ="";
            console.log(data);
            
-             data.country.forEach((country) => {
-            str+=`Šalies id: ${country.country_id}. Vardo kilmė šalyje: ${country.probability} <br>`;
+             data.country.forEach((c) => {
+            str+=`Šalies id: ${c.country_id}. Vardo kilmė šalyje: ${c.probability} <br>`;
         });
         htmlResult.innerHTML=str;
         nameInp.innerHTML="";
