@@ -5,4 +5,5 @@ export interface VaikuStovykla{
     lytis:string;
     email:string;
     phone:string;
+    id?:string;
 }
