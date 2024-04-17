@@ -39,9 +39,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="moteris">Moteris</label>
-                            <input type="radio" name="lytis" value="moteris" id="moteris">
+                            <input type="radio" name="gender" value="moteris" id="moteris">
                             <label for="vyras">Vyras</label>
-                            <input type="radio" name="lytis" value="vyras" id="vyras">
+                            <input type="radio" name="gender" value="vyras" id="vyras">
 
 
                         </div>
@@ -86,6 +86,9 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div>
+                                <button class="btn btn-success  float-end" id="loadData">Atnaujinti</button>
+                            </div>
 
                         </div>
 
@@ -103,6 +106,15 @@
                                 <input type="number" name="" id="yearEdit" class="form-control">
                             </div>
                             <div class="mb-3">
+                                <label for="moteris">Moteris</label>
+                                <input type="radio" name="genderEdit" value="Moteris" id="moterisEdit" required>
+                                <label for="vyras">Vyras</label>
+                                <input type="radio" name="genderEdit" value="Vyras" id="vyrasEdit">
+
+
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="" class="form-label">Elektroninis pastas:</label>
                                 <input type="text" name="" id="emailEdit" class="form-control">
                             </div>
@@ -113,11 +125,10 @@
 
 
                             <button class="btn btn-success" id="updateRegistration">Atnaujinti įrašą</button>
+
+                            <button class="btn btn-danger float-end" id="deleteRegistration">Ištrinti įrašą</button>
                         </div>
 
-                        <div>
-                            <button class="btn btn-success  float-end" id="loadData">Atnaujinti</button>
-                        </div>
 
 
 
