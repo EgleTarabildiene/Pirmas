@@ -16,130 +16,152 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mt-3">
-                <div class="card">
-                    <div class="card-header">
-                        Įveskite vaiko duomenis
-
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Vardas:</label>
-                            <input type="text" name="" id="vardas" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Pavarde:</label>
-                            <input type="text" name="" id="pavarde" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Gimimo metai:</label>
-                            <input type="number" name="" id="year" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="moteris">Moteris</label>
-                            <input type="radio" name="gender" value="moteris" id="moteris">
-                            <label for="vyras">Vyras</label>
-                            <input type="radio" name="gender" value="vyras" id="vyras">
-
-
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Elektroninis paštas:</label>
-                            <input type="text" name="" id="email" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Telefono numeris:</label>
-                            <input type="text" name="" id="phone" class="form-control">
-                        </div>
-
-                        <button class="btn btn-success" id="addRegistration">Pridėti registraciją</button>
-
+    <!--Prisijungimo forma-->
+    <section id="loginSection">
+        <div class="container">
+            <div class="row" style="min-height: 100vh;">
+                <div class="col-md-4 offset-md-4 d-flex align-items-center">
+                    <div class="alert alert-secondary p-5" style="width: 420px;">
+                        <h5 class="mb-4">Prisijunkite arba registruokitės</h5>
+                        <input type="text" class="form-control mb-3" placeholder="El. pašto adresas" id="loginEmail">
+                        <input type="password" class="form-control mb-3" placeholder="Slaptažodis" id="loginPassword">
+                        <div class="alert alert-danger" id="loginError"></div>
+                        <button class="btn btn-success" id="login">Prisijungti</button>
+                        <button class="btn btn-success float-end" id="register">Registruotis</button>
                     </div>
                 </div>
-
             </div>
-            <div class="col-md-6 mt-3">
-                <div class="card">
-                    <div class="card-header">
-                        Rezultatas
+        </div>
 
-                    </div>
-                    <div class="card-body">
-                        <div id="dataTable">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Vardas</th>
-                                        <th>Pavarde</th>
-                                        <th>El. pastas</th>
-                                        <th>Veiksmai</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="dataTableBody">
-                                    <tr>
-                                        <td>Vardas</td>
-                                        <td>Pavarde</td>
-                                        <td>el</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div>
-                                <button class="btn btn-success  float-end" id="loadData">Atnaujinti</button>
-                            </div>
+    </section>
+    <!--Duomenu atvaizdavimo forma-->
+    <section id="dataSection">
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-3">
+                    <div class="card">
+                        <div class="card-header">
+                            Įveskite vaiko duomenis
 
                         </div>
-
-                        <div id="editForm" style="display: none;">
+                        <div class="card-body">
                             <div class="mb-3">
                                 <label for="" class="form-label">Vardas:</label>
-                                <input type="text" name="" id="vardasEdit" class="form-control">
+                                <input type="text" name="" id="vardas" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Pavarde:</label>
-                                <input type="text" name="" id="pavardeEdit" class="form-control">
+                                <input type="text" name="" id="pavarde" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Gimimo metai:</label>
-                                <input type="number" name="" id="yearEdit" class="form-control">
+                                <input type="number" name="" id="year" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="moteris">Moteris</label>
-                                <input type="radio" name="genderEdit" value="Moteris" id="moterisEdit" required>
+                                <input type="radio" name="gender" value="moteris" id="moteris">
                                 <label for="vyras">Vyras</label>
-                                <input type="radio" name="genderEdit" value="Vyras" id="vyrasEdit">
+                                <input type="radio" name="gender" value="vyras" id="vyras">
 
 
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="" class="form-label">Elektroninis pastas:</label>
-                                <input type="text" name="" id="emailEdit" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Telefonas:</label>
-                                <input type="text" name="" id="phoneEdit" class="form-control">
+                                <label for="" class="form-label">Elektroninis paštas:</label>
+                                <input type="text" name="" id="email" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Telefono numeris:</label>
+                                <input type="text" name="" id="phone" class="form-control">
                             </div>
 
+                            <button class="btn btn-success" id="addRegistration">Pridėti registraciją</button>
 
-                            <button class="btn btn-success" id="updateRegistration">Atnaujinti įrašą</button>
-
-                            <button class="btn btn-danger float-end" id="deleteRegistration">Ištrinti įrašą</button>
                         </div>
-
-
-
-
                     </div>
+
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="card">
+                        <div class="card-header">
+                            Rezultatas
+
+                        </div>
+                        <div class="card-body">
+                            <div id="dataTable">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Vardas</th>
+                                            <th>Pavarde</th>
+                                            <th>El. pastas</th>
+                                            <th>Veiksmai</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dataTableBody">
+                                        <tr>
+                                            <td>Vardas</td>
+                                            <td>Pavarde</td>
+                                            <td>el</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <button class="btn btn-success  float-end" id="loadData">Atnaujinti</button>
+                                </div>
+
+                            </div>
+
+                            <div id="editForm" style="display: none;">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Vardas:</label>
+                                    <input type="text" name="" id="vardasEdit" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Pavarde:</label>
+                                    <input type="text" name="" id="pavardeEdit" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Gimimo metai:</label>
+                                    <input type="number" name="" id="yearEdit" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="moteris">Moteris</label>
+                                    <input type="radio" name="genderEdit" value="Moteris" id="moterisEdit" required>
+                                    <label for="vyras">Vyras</label>
+                                    <input type="radio" name="genderEdit" value="Vyras" id="vyrasEdit">
+
+
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Elektroninis pastas:</label>
+                                    <input type="text" name="" id="emailEdit" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Telefonas:</label>
+                                    <input type="text" name="" id="phoneEdit" class="form-control">
+                                </div>
+
+
+                                <button class="btn btn-success" id="updateRegistration">Atnaujinti įrašą</button>
+
+                                <button class="btn btn-danger float-end" id="deleteRegistration">Ištrinti įrašą</button>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
-    </div>
-
+    </section>
 </body>
 
 </html>
