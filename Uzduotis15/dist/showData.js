@@ -11,11 +11,9 @@ export const showData = (registrationData) => {
         tdPavarde.innerHTML = reg.pavarde;
         const tdNo = document.createElement("td");
         tdNo.innerHTML = reg.email;
-        const tdV = document.createElement("td");
         tr.appendChild(tdVardas);
         tr.appendChild(tdPavarde);
         tr.appendChild(tdNo);
-        tr.appendChild(tdV);
         dataTableBody.appendChild(tr);
         tr.onclick = () => {
             document.getElementById("dataTable").style.display = "none";
@@ -42,7 +40,7 @@ export const showData = (registrationData) => {
                     email: document.getElementById("emailEdit").value,
                     phone: document.getElementById("phoneEdit").value,
                 };
-                fetchRegistrations(`vaikustovykla/$reg.id`, "PUT", "upReg")
+                fetchRegistrations(`vaikustovykla/${reg.id}`, "PUT", upReg)
                     .then((response) => {
                     return response.json();
                 })

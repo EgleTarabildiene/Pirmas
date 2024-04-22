@@ -21,12 +21,12 @@ export const showData=(registrationData:VaikuStovykla[])=>{
         const tdNo=document.createElement("td");
         tdNo.innerHTML=reg.email;
 
-        const tdV=document.createElement("td");
+      
        
         tr.appendChild(tdVardas);
         tr.appendChild(tdPavarde);
         tr.appendChild(tdNo);
-        tr.appendChild(tdV);
+      
 
         dataTableBody.appendChild(tr);
 
@@ -57,7 +57,7 @@ export const showData=(registrationData:VaikuStovykla[])=>{
                     phone:(<HTMLInputElement>document.getElementById("phoneEdit")).value,
                 }
         
-                fetchRegistrations(`vaikustovykla/$reg.id`, "PUT", "upReg")
+                fetchRegistrations(`vaikustovykla/${reg.id}`, "PUT", upReg)
                 .then((response)=>{
                     return response.json();
                 })

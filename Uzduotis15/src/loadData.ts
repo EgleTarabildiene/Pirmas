@@ -4,9 +4,7 @@ import { VaikuStovykla } from "./vaikuStovykla.js";
 import { showData } from "./showData.js";
 
 export const loadData=()=>{
-
-
-     fetchRegistrations(`vaikustovykla`, "GET", null)
+    fetchRegistrations(`vaikustovykla`, "GET", null)
     .then((response)=>{
         return response.json();
     })

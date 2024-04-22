@@ -1,5 +1,5 @@
 import { userInfo } from "./app.js";
-import { loadData } from "./loadData";
+import { loadData } from "./loadData.js";
 function authExec(method) {
     fetch(`https://identitytoolkit.googleapis.com/v1/accounts:${method}?key=AIzaSyAASr2IpTiQgqGeYNTr607xkxqqT0n-sWg`, {
         method: "POST",
@@ -17,6 +17,8 @@ function authExec(method) {
         return response.json();
     })
         .then((data) => {
+        //Patikriname ar gražintame atsakyme yra error (atributas)
+        // Jei taip, tuomet nutraukia vykdymą ir išmetame klaidą kuri patenka į catch metodą (apačioje)
         if (typeof data.error !== "undefined") {
             if (data.error.message == "EMAIL_EXISTS") {
                 throw new Error("Toks el. pašto adresas jau egzistuoja");
@@ -27,11 +29,15 @@ function authExec(method) {
             throw new Error("Vartotojo vardas arba slaptažodis neteisingas");
         }
         console.log(data);
+        // Priskiriame vartotojo duomenis kitamajam userInfo
         userInfo.email = data.email;
+        //Priskiriame ir token
         userInfo.idToken = data.idToken;
         userInfo.loggedin = true;
+        //Paslėpiame logino sekciją ir parodome duomenų sekciją
         document.getElementById("loginSection").style.display = "none";
         document.getElementById("dataSection").style.display = "block";
+        //Užkrauname duomenis
         loadData();
     })
         .catch((err) => {
@@ -40,6 +46,7 @@ function authExec(method) {
         errorDiv.innerHTML = err.message;
     });
 }
+// Eksportuojame prisijungimo ir registracijos funkcijas, kurios abi iškviečia authExec f-ją su skirtingais metodais
 export function loginExec() {
     authExec("signInWithPassword");
 }

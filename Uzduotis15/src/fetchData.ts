@@ -13,5 +13,5 @@ export const fetchRegistrations=(path:string, method:string, data:any)=>{
         options.body=JSON.stringify(data);
         //options={body:JSON.stringify(data), ...options};
     }
-    return fetch(`https://vasaros-stovykla-default-rtdb.europe-west1.firebasedatabase.app/${path}.json?auth=${userInfo.idToken}`, options);
+    return fetch(`https://vasaros-stovykla-default-rtdb.europe-west1.firebasedatabase.app/${path}.json?auth=${userInfo.idToken}`,options);
     };

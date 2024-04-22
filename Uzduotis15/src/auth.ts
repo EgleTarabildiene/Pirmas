@@ -1,5 +1,5 @@
 import { userInfo } from "./app.js";
-import { loadData } from "./loadData";
+import { loadData } from "./loadData.js";
 
 function authExec(method:string){
     fetch(`https://identitytoolkit.googleapis.com/v1/accounts:${method}?key=AIzaSyAASr2IpTiQgqGeYNTr607xkxqqT0n-sWg`,{
@@ -9,17 +9,19 @@ function authExec(method:string){
             'Content-Type':'application/json'
         },
 
-        body: JSON.stringify({
+       body: JSON.stringify({
             email:(<HTMLInputElement>document.getElementById("loginEmail")).value,
             password:(<HTMLInputElement>document.getElementById("loginPassword")).value,
             returnSecureToken:true,
         })
-})
+    })
 .then((response)=>{
-return response.json();
-})
-.then((data)=>{
-if (typeof data.error !== "undefined"){
+      return response.json();
+    })
+    .then((data)=>{
+        //Patikriname ar gražintame atsakyme yra error (atributas)
+        // Jei taip, tuomet nutraukia vykdymą ir išmetame klaidą kuri patenka į catch metodą (apačioje)
+        if (typeof data.error !== "undefined"){
             if (data.error.message=="EMAIL_EXISTS"){
                 throw new Error("Toks el. pašto adresas jau egzistuoja");
             }
@@ -28,28 +30,32 @@ if (typeof data.error !== "undefined"){
             }
 
             throw new Error("Vartotojo vardas arba slaptažodis neteisingas");
-    }
-    console.log(data);
-    userInfo.email=data.email;
-    userInfo.idToken=data.idToken;
-    userInfo.loggedin=true;
-    (<HTMLElement>document.getElementById("loginSection")).style.display="none";
-    (<HTMLElement>document.getElementById("dataSection")).style.display="block";
-
-    loadData();
-})
-.catch((err:Error)=>{
-let errorDiv = (<HTMLElement>document.getElementById("loginError"));
-errorDiv.style.display="block";
-errorDiv.innerHTML=err.message;
-
-});
+        }
+        console.log(data);
+        // Priskiriame vartotojo duomenis kitamajam userInfo
+        userInfo.email=data.email;
+        //Priskiriame ir token
+        userInfo.idToken=data.idToken;
+        userInfo.loggedin=true;
+        //Paslėpiame logino sekciją ir parodome duomenų sekciją
+        (<HTMLElement>document.getElementById("loginSection")).style.display="none";
+        (<HTMLElement>document.getElementById("dataSection")).style.display="block";
+        //Užkrauname duomenis
+        loadData();
+    })
+    .catch((err:Error)=>{
+       let errorDiv= (<HTMLElement>document.getElementById("loginError"));
+       errorDiv.style.display="block";
+       errorDiv.innerHTML=err.message;
+    });
 }
 
-export function loginExec() {
+
+// Eksportuojame prisijungimo ir registracijos funkcijas, kurios abi iškviečia authExec f-ją su skirtingais metodais
+export function loginExec(){
     authExec("signInWithPassword");
-}
-export function registerExec() {
-    authExec("signUp");
-}
+} 
 
+export function registerExec(){
+    authExec("signUp");
+} 
