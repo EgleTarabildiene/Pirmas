@@ -10,7 +10,7 @@ El. paštas,
 Telefonas
 
 */
-import { loginExec, registerExec } from "./auth.js";
+import { loadUser, loginExec, registerExec, showLogin } from "./auth.js";
 import { fetchRegistrations } from "./fetchData.js";
 import { loadData } from "./loadData.js";
 const vardasInput = document.getElementById("vardas");
@@ -60,9 +60,9 @@ export const userInfo = {
     loggedin: false,
 };
 //paslepiame duomenu sekcija
-document.getElementById("loginSection").style.display = "block";
-document.getElementById("dataSection").style.display = "none";
+showLogin();
 document.getElementById("loginError").style.display = "none";
+loadUser();
 loadDataButton.onclick = loadData;
 document.getElementById("login").onclick = loginExec;
 document.getElementById("register").onclick = registerExec;

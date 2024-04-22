@@ -10,11 +10,12 @@ El. paštas,
 Telefonas
 
 */
-import { loginExec, registerExec } from "./auth.js";
+import {  loadUser, loginExec, registerExec, showLogin } from "./auth.js";
 import { fetchRegistrations } from "./fetchData.js";
 import { loadData} from "./loadData.js";
 import { VaikuStovykla } from "./vaikuStovykla.js";
 import { showData} from "./showData.js";
+import { User } from "./user.js";
 
 const vardasInput=<HTMLInputElement>document.getElementById("vardas");
 const pavardeInput=<HTMLInputElement>document.getElementById("pavarde");
@@ -68,18 +69,17 @@ addRegistrationButton.onclick=()=>{
 
 };
 
-export const userInfo={
+export const userInfo:User={
     email:"",
     idToken:"",
     loggedin:false,
 };
 
 //paslepiame duomenu sekcija
-(<HTMLElement>document.getElementById("loginSection")).style.display="block";
-(<HTMLElement>document.getElementById("dataSection")).style.display="none";
+showLogin();
 (<HTMLElement>document.getElementById("loginError")).style.display="none";
 
-
+loadUser();
 
 
 loadDataButton.onclick=loadData;
