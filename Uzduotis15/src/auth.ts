@@ -112,66 +112,95 @@ return result.json();
 logOut();
 })
 }
-
-/*
-
-export function changeEmail() {
-    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAASr2IpTiQgqGeYNTr607xkxqqT0n-sWg`,{
-  method:"POST",
-        headers:{
-            'Accept':'application/json',
-            'Content-Type':'application/json'
-        },
-
-       body: JSON.stringify({
-            email:(<HTMLInputElement>document.getElementById("loginEmail")).value,
-            password:(<HTMLInputElement>document.getElementById("loginPassword")).value,
-            returnSecureToken:true,
-        })
-})
-.then((result)=>{
-return result.json();
-})
-.then((data)=>{
-showLogin();
-})
-}
-
-export function changePasword() {
-    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAASr2IpTiQgqGeYNTr607xkxqqT0n-sWg`,{
-  method:"POST",
-        headers:{
-            'Accept':'application/json',
-            'Content-Type':'application/json'
-        },
-
-       body: JSON.stringify({
-            email:(<HTMLInputElement>document.getElementById("loginEmail")).value,
-            password:(<HTMLInputElement>document.getElementById("loginPassword")).value,
-            returnSecureToken:true,
-        })
-})
-.then((result)=>{
-return result.json();
-})
-.then((data)=>{
-showLogin();
-})
-}
-
-
-
-
-*/
-
-
-
-
-
-
 (<HTMLElement>document.getElementById("loginError")).style.display="none";
 (<HTMLElement>document.getElementById("logOut")).onclick=logOut;
 (<HTMLElement>document.getElementById("deleteAccount")).onclick=deleteAccount;
+
+
+
+export function changeEmail(email:string) {
+    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAASr2IpTiQgqGeYNTr607xkxqqT0n-sWg`,{
+  method:"POST",
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+
+       body: JSON.stringify({
+            email:"",
+            password:"",
+            idToken: userInfo.idToken,
+            returnSecureToken:false,
+        })
+})
+.then((result)=>{
+return result.json();
+})
+.then((data)=>{
+logOut()
+})
+}
+
+export function changePasword(password:string) {
+    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAASr2IpTiQgqGeYNTr607xkxqqT0n-sWg`,{
+  method:"POST",
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+
+       body: JSON.stringify({
+            email:"",
+            password:"",
+            idToken: userInfo.idToken,
+            returnSecureToken:false,
+        })
+})
+.then((result)=>{
+return result.json();
+})
+.then((data)=>{
+logOut()
+})
+}
+
+(<HTMLElement>document.getElementById("changePassword")).onclick = () => {
+       
+     (<HTMLElement>document.getElementById("newLoginSection")).style.display ='block';
+     
+        
+        (<HTMLButtonElement>document.getElementById("changePasswordBtn")).onclick = () => {
+            let newPassword = (<HTMLInputElement>document.getElementById("newLoginPassword")).value;
+            changePasword(newPassword);
+        
+            (<HTMLElement>document.getElementById("newloginSection")).style.display = 'none';
+        }  
+    } 
+
+
+(<HTMLElement>document.getElementById("changeEmail")).onclick = () => {
+    ((<HTMLElement>document.getElementById("newLoginSection")).style.display === 'block');
+       
+
+        
+        (<HTMLButtonElement>document.getElementById('changeEmailBtn')).onclick = () => {
+            let newEmail = (<HTMLInputElement>document.getElementById("newLoginEmail")).value;
+            changeEmail(newEmail);
+          
+            (<HTMLElement>document.getElementById("newloginSection")).style.display = 'none';
+        }  
+     
+} 
+
+
+
+
+
+
+
+
+
+
 
 
 

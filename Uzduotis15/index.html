@@ -28,12 +28,31 @@
                         <div class="alert alert-danger" id="loginError"></div>
                         <button class="btn btn-success" id="login">Prisijungti</button>
                         <button class="btn btn-success float-end" id="register">Registruotis</button>
-                        <button class="btn btn-success float-end" id="register">Pakeisti el. pasta</button>
-                        <button class="btn btn-success float-end" id="register">Pakeisti slaptazodi</button>
+
                     </div>
                 </div>
             </div>
         </div>
+
+    </section>
+    <section class="newLoginSection" style="display: none;">
+        <div class="container">
+            <div class="row" style="min-height: 100vh;">
+                <div class="col-md-4 offset-md-4 d-flex align-items-center">
+                    <div class="alert alert-secondary p-5" style="width: 420px;">
+                        <h5 class="mb-4">Pakeiskite prisijungimo nustatymus</h5>
+                        <input type="text" class="form-control mb-3" placeholder="El. pašto adresas" id="newLoginEmail">
+                        <input type="password" class="form-control mb-3" placeholder="Slaptažodis" id="newLoginPassword">
+                        <div class="alert alert-danger" id="loginError"></div>
+                        <button class="btn btn-success" id="newEmailBtn">Pakeisti el pasta</button>
+                        <button class="btn btn-success float-end" id="newPasswordBtn">Pakeisti Slaptazodi</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
     </section>
     <!--Duomenu atvaizdavimo forma-->
@@ -52,6 +71,12 @@
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="#" id="logOut">Atsijungti</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" id="changeEmail">Pakeisti el. pasta</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" id="changePassword">Pakeisti slaptazodi</a>
                         </li>
 
                     </ul>

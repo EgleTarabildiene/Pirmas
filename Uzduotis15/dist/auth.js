@@ -97,6 +97,9 @@ export function deleteAccount() {
         logOut();
     });
 }
+document.getElementById("loginError").style.display = "none";
+document.getElementById("logOut").onclick = logOut;
+document.getElementById("deleteAccount").onclick = deleteAccount;
 /*
 
 export function changeEmail() {
@@ -108,9 +111,10 @@ export function changeEmail() {
         },
 
        body: JSON.stringify({
-            email:(<HTMLInputElement>document.getElementById("loginEmail")).value,
-            password:(<HTMLInputElement>document.getElementById("loginPassword")).value,
-            returnSecureToken:true,
+            email:"",
+            password:"",
+            userInfo.idToken
+            returnSecureToken:false,
         })
 })
 .then((result)=>{
@@ -130,9 +134,10 @@ export function changePasword() {
         },
 
        body: JSON.stringify({
-            email:(<HTMLInputElement>document.getElementById("loginEmail")).value,
-            password:(<HTMLInputElement>document.getElementById("loginPassword")).value,
-            returnSecureToken:true,
+            email:"";
+            password:"";
+            userInfo.idToken
+            returnSecureToken:false,
         })
 })
 .then((result)=>{
@@ -142,11 +147,24 @@ return result.json();
 showLogin();
 })
 }
-
-
-
-
 */
-document.getElementById("loginError").style.display = "none";
-document.getElementById("logOut").onclick = logOut;
-document.getElementById("deleteAccount").onclick = deleteAccount;
+document.getElementById("changePassword").onclick = () => {
+    document.getElementById("dataSection").style.display = "none";
+    document.getElementById("newLoginSection").style.display = 'block';
+    document.getElementById('changePasswordBtn').onclick = () => {
+        let newPassword = document.getElementById("newPassword").value;
+        changePassword({ password: newPassword });
+        document.getElementById("newLoginPassword").value = '';
+        document.getElementById("newloginSection").style.display = 'none';
+    };
+};
+document.getElementById("changeEmail").onclick = () => {
+    (document.getElementById("newLoginSection").style.display === 'block');
+    document.getElementById("newLoginSection").style.display = 'block';
+    document.getElementById('changeEmailBtn').onclick = () => {
+        const newEmail = document.getElementById('newEmail').value;
+        changeEmail({ email: newEmail });
+        document.getElementById("newLoginEmail").value = '';
+        document.getElementById("newloginSection").style.display = 'none';
+    };
+};
